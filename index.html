@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Sensibilidades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff0000, #000);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Generador de Sensibilidades</h1>
+  <p>Elige tu dispositivo y obtén la sensibilidad perfecta para dar todo rojo 🔥</p>
+
+  <label for="dispositivo">Selecciona tu dispositivo:</label><br>
+  <select id="dispositivo">
+    <option value="infinix">Infinix Hot 30</option>
+    <option value="samsung">Samsung</option>
+    <option value="iphone">iPhone</option>
+    <option value="redmi">Xiaomi/Redmi</option>
+    <option value="huawei">Huawei</option>
+    <option value="lg">LG</option>
+  </select><br>
+
+  <button onclick="generar()">Generar Sensibilidad</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    function numeroAleatorio() {
+      return Math.floor(Math.random() * (200 - 100 + 1)) + 100; 
+    }
+
+    function generar() {
+      let dispositivo = document.getElementById("dispositivo").value;
+      let sensibilidad = 
+        "Sensibilidad " + dispositivo.toUpperCase() + ": " + 
+        numeroAleatorio() + " / " + 
+        numeroAleatorio() + " / " + 
+        numeroAleatorio() + " 🔥🎯";
+
+      document.getElementById("resultado").innerText = sensibilidad;
+    }
+  </script>
+</body>
+</html>
